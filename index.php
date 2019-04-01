@@ -7,16 +7,24 @@
   mysqli_close($conn);
 ?>
 
-  <p>Welcome to my Blog. Please contact my with any questions you may have, I am always open for discussion</p>
+<div class="jumbotron jumbotron-fluid bg-primary text-white">
+  <h1 class="text-center">My Blog</h1>
+  <p class="text-center lead pt-2">Welcome to my Blog. Please contact my with any questions you may have, I am always open for discussion</p>
+</div>
 
-  <h2>Posts</h2>
+  <h2 class="text-center p-4">Posts</h2>
   <?php foreach($posts as $post) : ?>
-    <div>
-      <h3> <?php echo $post['title']; ?> </h3>
-      <h4> <?php echo $post['author']; ?> </h4>
-      <h4> <?php echo $post['postdate']; ?> </h4>
-      <p> <?php echo $post['body']; ?> </p>
+    <div class="container text-center p-4">
+      <div class="card bg-light">
+      <div class="card-body p-0">
+      <h3 class="card-title p-2 bg-secondary text-white"> <?php echo $post['title']; ?> </h3>
+      <h5 class="card-subtitle p-2 text-secondary"> by: <?php echo $post['author']; ?> </h5>
+      <p class="card-text p-3"> <?php echo $post['body']; ?> </p>
+      <h6 class="card-footer m-0"> Posted: <?php echo $post['postdate']; ?> </h6>
     </div>
+  </div>
+  </div>
+  <br>
   <?php endforeach; ?>
 
 

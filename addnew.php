@@ -18,18 +18,21 @@
   }
 
 ?>
-
-<form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
-  <label>Title</label>
-  <input type="text" name="title">
-
-  <label>Author</label>
-  <input type="text" name="author">
-
-  <label>Body</label>
-  <textarea name="body"></textarea>
-
-  <button type="submit" name="submit" value="Submit">Submit</button>
+<div class="p-4 m-4"></div>
+<form class="m-3 text-center" method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
+  <div class="form-group">
+    <label class="mx-auto">Title</label>
+    <input class="form-control col-sm-3 mx-auto" type="text" name="title">
+  </div>
+  <div class="form-group">
+    <label>Author</label>
+    <input class="form-control col-sm-3 mx-auto" type="text" name="author">
+  </div>
+  <div class="form-group">
+    <label>Body</label>
+    <textarea class="form-control col-sm-3 mx-auto" rows="6" name="body"></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit" name="submit" value="Submit">Submit</button>
 
 </form>
 
