@@ -1,11 +1,14 @@
 <?php
-  include 'header.php';
-  require 'db.inc.php';
+  require './inc/db.inc.php';
   $query = 'SELECT * FROM blogposts ORDER BY postdate DESC';
   $result = mysqli_query($conn, $query);
-  $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $posts = array();
+  while ($post = $result->fetch_assoc()) {
+      $posts[] = $post;
+  }
   mysqli_free_result($result);
   mysqli_close($conn);
+  include 'header.php';
 ?>
 
 
@@ -19,3 +22,7 @@
   </div>
   <?php endforeach; ?>
 </div>
+
+<?php
+include 'footer.php'
+?>

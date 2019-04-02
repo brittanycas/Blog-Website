@@ -1,5 +1,4 @@
 <?php
-  include 'header.php';
 $alert="";
 $alertClass="";
 
@@ -25,7 +24,7 @@ if(!empty($name) && !empty($email) && !empty($message)) {
          $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
 
          if( mail($toEmail, $subject, $body, $headers)) {
-             $alert = "Your email has been sent. Click <a href='./index.html'>here</a> to return home.";
+             $alert = "Your email has been sent. Click <a href='http://blog.brittanycassell.com/index.php' >here</a> to return home.";
              $alertClass = "text-center alert alert-success";
          } else {
              $alert = "Your email failed to send";
@@ -37,7 +36,7 @@ if(!empty($name) && !empty($email) && !empty($message)) {
     $alertClass="text-center alert alert-danger";
 }
 };
-
+include 'header.php';
  ?>
 
 
@@ -69,6 +68,7 @@ if(!empty($name) && !empty($email) && !empty($message)) {
            <button type="submit" name="submit">Submit</button>
      </form>
    </div>
-   </body>
 
-   </html>
+   <?php
+   include 'footer.php'
+   ?>

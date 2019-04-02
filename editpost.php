@@ -1,6 +1,5 @@
 <?php
-  include 'header.php';
-  require 'db.inc.php';
+  require './inc/db.inc.php';
   $id = mysqli_real_escape_string($conn, $_GET['id']);
   $query = 'SELECT * FROM blogposts WHERE postid = '.$id;
   $result = mysqli_query($conn, $query);
@@ -8,21 +7,21 @@
   mysqli_free_result($result);
 
   if(isset($_POST['submit'])) {
-    $title = mysqli_real_escape_string($conn, $_POST['title']);
-    $author = mysqli_real_escape_string($conn, $_POST['author']);
-    $body = mysqli_real_escape_string($conn, $_POST['body']);
+    $title = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['title']));
+    $author = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['author']));
+    $body = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['body']));
 
     $query = "UPDATE blogposts SET title = '$title', author ='$author', body = '$body' WHERE postid = ".$id;
 
     if(mysqli_query($conn, $query)) {
-      header("Location: ./index.php");
+      header("Location: http://blog.brittanycassell.com/index.php");
     } else {
       //Post error
       echo 'ERROR';
     }
   }
 
-
+include 'header.php';
 ?>
 
 <div class="p-4 m-4"></div>
@@ -41,4 +40,9 @@
   </div>
   <button class="btn btn-primary" type="submit" name="submit" value="Submit">Submit</button>
 
+
 </form>
+
+<?php
+include 'footer.php'
+?>

@@ -21,10 +21,10 @@
             <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Blog List</a>
+            <a class="nav-link" href="./bloglist.php">Blog List</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="./contact.php">Contact</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./addnew.php">Add New</a>

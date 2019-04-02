@@ -1,22 +1,21 @@
 <?php
-  include 'header.php';
-  require 'db.inc.php';
+  require './inc/db.inc.php';
 
   if(isset($_POST['submit'])) {
-    $title = mysqli_real_escape_string($conn, $_POST['title']);
-    $author = mysqli_real_escape_string($conn, $_POST['author']);
-    $body = mysqli_real_escape_string($conn, $_POST['body']);
+    $title = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['title']));
+    $author = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['author']));
+    $body = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['body']));
 
     $query = "INSERT INTO blogposts(title, author, body) VALUES ('$title', '$author', '$body')";
 
     if(mysqli_query($conn, $query)) {
-      header("Location: ./index.php");
+      header("Location: http://blog.brittanycassell.com/index.php");
     } else {
       //Post error
       echo 'ERROR';
     }
   }
-
+include 'header.php';
 ?>
 <div class="p-4 m-4"></div>
 <form class="m-3 text-center" method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
@@ -36,5 +35,6 @@
 
 </form>
 
-</body>
-</html>
+<?php
+include 'footer.php'
+?>
